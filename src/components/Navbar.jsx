@@ -9,7 +9,7 @@ const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false)
     const { theme, setTheme } = useTheme()
     const isDark = theme === "dark"
-    const categories = ["general", "political", "social", "health", "technology"]
+    const categories = ["general", "political", "social", "health", "international"]
     const location = useLocation()
 
     return (

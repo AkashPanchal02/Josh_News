@@ -20,12 +20,11 @@ const DisplayNews = () => {
     
     
     useEffect(() => {
-        const fetchNews = async (category) => {
+        const fetchNews = async () => {
             setLoading(true)
             setResult({articles: []})
             try {
-                // const response = await fetch(`https://newsapi.org/v2/everything?q=${category}&apiKey=${import.meta.env.VITE_GNEWSAPI_KEY}`)
-                const response = await fetch(`https://gnews.io/api/v4/search?q=${category}&lang=in&country=in&max=10&apikey=${import.meta.env.VITE_GNEWSAPI_KEY}`)
+                const response = await fetch(`https://gnews.io/api/v4/search?q=international&lang=en&max=10&apikey=${import.meta.env.VITE_GNEWSAPI_KEY}`)
                 
                 if (!response.ok) {
                     throw new Error(`HTTP Error! Status ${response.status}`)
@@ -38,12 +37,12 @@ const DisplayNews = () => {
                 setLoading(false);
             }
         }
-        fetchNews(category)
-    }, [category])
+        fetchNews()
+    }, [])
 
     return (
         <div className='container mx-auto'>
-            <h1 className='font-bold text-center text-4xl sm:text-6xl py-9 capitalize'> {category} Headlines </h1>
+            <h1 className='font-bold text-center text-4xl sm:text-6xl py-9 capitalize'> International Headlines </h1>
             {loading && <LoadingSpinner/>}
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
                 {result.articles?.filter(({image}) => image)?.map(({ title, source, description, url, image, publishedAt }) => (
