@@ -3,7 +3,6 @@ import {Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/component
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { useTheme } from '@/context/ThemeProvider'
-import { useParams } from 'react-router-dom'
 import { Badge } from '@/components/ui/badge'
 import { Clock } from 'lucide-react'
 import { formatDate } from '@/utils/formatDate'
@@ -11,7 +10,6 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 
 const DisplayNews = () => {
 
-    const { category="top" } = useParams()
     const { theme } = useTheme()
     const isDark = theme === 'dark'
     const [result, setResult] = useState({articles: []})

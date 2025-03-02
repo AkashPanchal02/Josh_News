@@ -8,6 +8,8 @@ import { Badge } from '@/components/ui/badge'
 import { Clock } from 'lucide-react'
 import { formatDate } from '@/utils/formatDate'
 import LoadingSpinner from '@/components/LoadingSpinner'
+import { SparklesText } from '@/components/magicui/sparkles-text'
+
 
 const DisplayNews = () => {
 
@@ -24,7 +26,6 @@ const DisplayNews = () => {
             setLoading(true)
             setResult({articles: []})
             try {
-                // const response = await fetch(`https://newsapi.org/v2/everything?q=${category}&apiKey=${import.meta.env.VITE_GNEWSAPI_KEY}`)
                 const response = await fetch(`https://gnews.io/api/v4/search?q=${category}&lang=in&country=in&max=10&apikey=${import.meta.env.VITE_GNEWSAPI_KEY}`)
                 
                 if (!response.ok) {
@@ -43,7 +44,7 @@ const DisplayNews = () => {
 
     return (
         <div className='container mx-auto'>
-            <h1 className='font-bold text-center text-4xl sm:text-6xl py-9 capitalize'> {category} Headlines </h1>
+            <SparklesText text={`${category} Headlines`}  className="text-center text-4xl sm:text-6xl pb-9 capitalize font-extrabold"  /> 
             {loading && <LoadingSpinner/>}
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
                 {result.articles?.filter(({image}) => image)?.map(({ title, source, description, url, image, publishedAt }) => (
@@ -61,7 +62,7 @@ const DisplayNews = () => {
                             <Badge className="absolute top-[6px] border-none" variant="primary">{source.name}</Badge>
 
                             <CardTitle className="py-2 text-xl" >
-                                {title.split(" ").slice(0, 13).join(" ") + (title.split(" ").length > 12 ? "." : "" )} 
+                                {title.split(" ").slice(0, 12).join(" ") + (title.split(" ").length > 12 ? "." : "" )} 
                             </CardTitle>
                         </CardHeader>
                         <CardContent className="flex-grow">

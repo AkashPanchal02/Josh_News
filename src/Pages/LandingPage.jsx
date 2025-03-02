@@ -37,15 +37,14 @@ const LandingPage = () => {
         fetchNews()
     }, [])  
 
-        
   return (
     <div>
-        <section className={`conatiner ${isDark? "bg-black": "bg-white"}  py-40 text-center`}>
+        <section className={`conatiner ${isDark? "bg-black": "bg-white"} sm:pt-40 pt-5 pb-20 text-center`}>
             <div className="heading ">
-                <SparklesText text="Stay informed with FlashFeed" /> 
+                <SparklesText text="Stay informed with FlashFeed" className="sm:text-center text-6xl sm:text-7xl text-left"  /> 
             </div>
             <div className="para">
-                <p className={`text-xl md:text-xl max-w-xl py-5 mx-auto ${isDark ? "text-blue-100" : "text-black"}  mb-8`}> Your trusted source for breaking news, in-depth analysis, and the stories that matter most.</p>
+                <p className={`sm:text-center text-left text-xl max-w-2xl py-5 mx-auto ${isDark ? "text-blue-100" : "text-black"} mb-8`}> Your trusted source for breaking news, in-depth analysis, and the stories that matter most.</p>
             </div>
             <div className="">
                 <div className="relative search max-w-2xl text-center mx-auto">
@@ -62,8 +61,8 @@ const LandingPage = () => {
 
         <div className="explore-new-categories">
             <div className="heading text text-center mb-12">
-            <SparklesText className="sm:pt-32 pt-16" text="Explore News Categories" />   
-                <p className='py-5 text-xl mx-auto max-w-4xl'>Dive into the topics that matter most to you. From business and technology to entertainment and sports.</p>
+            <SparklesText className="sm:pt-32 sm:text-center text-left" text="Explore News Categories" />   
+                <p className={`py-6 text-xl mx-auto max-w-2xl sm:text-center text-left ${isDark ? "text-blue-100" : "text-black"}`}> Dive into the topics that matter most to you. From business and technology to entertainment and sports. </p>
             </div>
             <div className="category-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 {categories.map((category) => (
@@ -84,7 +83,7 @@ const LandingPage = () => {
 
         <div className="recent-headlines">
             <div className='container mx-auto'>
-                <SparklesText text="Recent Headlines" className='font-bold text-center text-4xl sm:text-6xl py-9 capitalize mt-24 mb-8'/>
+                <SparklesText text="Recent Headlines" className='font-bold sm:text-center text-left capitalize mt-24 mb-8'/>
 
                 {loading && <LoadingSpinner/>}
                 <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>

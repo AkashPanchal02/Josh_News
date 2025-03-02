@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTheme } from '@/context/ThemeProvider'
-import { Moon, Sun, Menu, X} from 'lucide-react'
+import { Moon, Sun, X} from 'lucide-react'
 import { Button } from './ui/button'
+import { TbMenuDeep } from "react-icons/tb";
 
 const Navbar = () => {
 
@@ -13,17 +14,20 @@ const Navbar = () => {
     const location = useLocation()
 
     return (
-        <nav className='sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur py-2 supports-[backdrop-filter]:bg-background/60 sm:px-16 bg-black px-5 h-[80px] flex items-center justify-between'>
+        <nav className='sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur py-2 supports-[backdrop-filter]:bg-background/60 bg-black h-[80px] flex items-center justify-between sm:px-16 px-5'>
             <div className="img">
-                <Link to="/"> <img src="/logo1.png" alt="Logo" width={'120'} /> </Link>
+                <Link to="/"> <img src="/logo.png" alt="Logo" width={'60'} /> </Link>
             </div>
 
-            <div className={`md:hidden cursor-pointer`} onClick={() => setMenuOpen(!menuOpen)}>
-                {menuOpen ? <X className={`w-7 h-7 ${isDark? "text-white" : "text-black"}`} /> : <Menu className={`w-7 h-7 ${isDark? "text-white" : "text-black"}`} />}
-            </div>
+            <div className='flex justify-end gap-3 flex-row-reverse sm:flex-row'>
+                {/* Menu Toggler */}
+                <div className={`md:hidden cursor-pointer flex`} onClick={() => setMenuOpen(!menuOpen)}>
+                    {menuOpen ? <X className={`w-7 h-7 ${isDark? "text-white" : "text-black"}`} /> : <TbMenuDeep className={`w-7 h-7 ${isDark? "text-white" : "text-black"}`} />}
+                </div>
 
-            <div className='flex justify-between gap-12'>
-                <div className={`md:flex md:gap-12 absolute md:static top-20 right-0 w-full md:w-auto ${isDark? "bg-black": "bg-white"} md:bg-transparent p-5 md:p-0 ${menuOpen ? "block" : "hidden"}`}>
+                <div 
+                    className={`md:flex md:gap-12 absolute md:static top-20 right-0 w-full md:w-auto ${isDark? "bg-black": "bg-white"} md:bg-transparent p-5 md:p-0 transition-all duration-300 ease-in-out transform ${menuOpen ? "blockopacity-100 scale-100" : "opacity-0 scale-95"} md:opacity-100 md:scale-100`}
+                >
                     <ul className="flex flex-col md:flex-row justify-end gap-2 cursor-pointer">
                         {categories.map((category) => (
                             <Button 

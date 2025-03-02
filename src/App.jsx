@@ -7,19 +7,17 @@ import { ThemeProvider } from './context/ThemeProvider'
 import LandingPage from './Pages/LandingPage'
 import  InternationalNews  from './Pages/InternationalNews'
 
-
-
-
 function App() {
   return (
     <>
       <BrowserRouter>
-        <ThemeProvider default="dark">
+        <ThemeProvider defaultTheme="dark">
           <Layout>
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/news/international" element={<InternationalNews />} />
               <Route exact path="/news/:category" element={ <DisplayNews /> } />
+              <Route path="*" element={<Navigate to="/" />} />
             </Routes>        
           </Layout>
         </ThemeProvider>
@@ -29,3 +27,4 @@ function App() {
 }
 
 export default App
+

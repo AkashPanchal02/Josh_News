@@ -16,7 +16,7 @@ const Layout = ({children}) => {
         </main>
         <footer className='border-t backdrop-blur py-8 supports-[backdrop-filter]:bg-background/60'>
             <div className='container mx-auto px-4 text-center'>
-                <h2> Made by Akash Panchal</h2>
+                <h2> Made with 🤍 by Akash Panchal</h2>
             </div>
         </footer>
     </div>
