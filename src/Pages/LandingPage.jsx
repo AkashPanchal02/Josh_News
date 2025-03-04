@@ -52,7 +52,7 @@ const LandingPage = () => {
             <section className={`conatiner ${isDark? "bg-black": "bg-white"} sm:pt-40 pt-5 pb-20 text-center`}>
                 <div className="heading">
                     <SparklesText text="Stay informed with News Jagran" className="hidden sm:block invisible sm:visible sm:text-center text-6xl sm:text-7xl text-left" /> 
-                    <SparklesText text="Stay informed with" className="block sm:hidden visible sm:invisible sm:text-center text-6xl sm:text-7xl text-left"  /> 
+                    <SparklesText text="Stay informed with" className="block sm:hidden visible sm:invisible sm:text-center text-5xl sm:text-7xl text-left"  /> 
                     <SparklesText text="News Jagran" className="block sm:hidden visible sm:invisible sm:text-center text-5xl sm:text-7xl text-left"  /> 
                 </div>
                 <div className="para">
