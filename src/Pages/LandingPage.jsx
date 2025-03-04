@@ -51,9 +51,9 @@ const LandingPage = () => {
         <div>
             <section className={`conatiner ${isDark? "bg-black": "bg-white"} sm:pt-40 pt-5 pb-20 text-center`}>
                 <div className="heading">
-                    <SparklesText text="Stay informed with FreshNews" className="hidden sm:block invisible sm:visible sm:text-center text-6xl sm:text-7xl text-left" /> 
-                    <SparklesText text="Stay informed with" className="block sm:hidden visible sm:invisible sm:text-center text-6xl sm:text-7xl text-left"  /> 
-                    <SparklesText text="FreshNews" className="block sm:hidden visible sm:invisible sm:text-center text-6xl sm:text-7xl text-left"  /> 
+                    <SparklesText text="Stay informed with News Jagran" className="hidden sm:block invisible sm:visible sm:text-center text-6xl sm:text-7xl text-left" /> 
+                    <SparklesText text="Stay informed with" className="block sm:hidden visible sm:invisible sm:text-center text-5xl sm:text-7xl text-left"  /> 
+                    <SparklesText text="News Jagran" className="block sm:hidden visible sm:invisible sm:text-center text-5xl sm:text-7xl text-left"  /> 
                 </div>
                 <div className="para">
                     <p className={`sm:text-center text-left text-xl max-w-2xl py-5 mx-auto ${isDark ? "text-blue-100" : "text-black"} mb-8`}> Your trusted source for breaking news, in-depth analysis, and the stories that matter most.</p>
@@ -83,7 +83,7 @@ const LandingPage = () => {
 
             <div className="explore-new-categories">
                 <div className="heading text text-center mb-12">
-                <SparklesText className="sm:pt-32 sm:text-center text-left" text="Explore News Categories" />   
+                <SparklesText className="sm:pt-32 sm:text-6xl text-5xl sm:text-center text-left" text="Explore News Categories" />   
                     <p className={`py-6 text-xl mx-auto max-w-4xl sm:text-center text-left ${isDark ? "text-blue-100" : "text-black"}`}>
                         Stay ahead with the latest in business, technology, entertainment, and sports. Discover the stories that matter most to you.
                     </p>
@@ -114,7 +114,7 @@ const LandingPage = () => {
 
             <div className="recent-headlines">
                 <div className='container mx-auto'>
-                    <SparklesText text="Recent Headlines" className='font-bold sm:text-center text-left capitalize mt-24 mb-8'/>
+                    <SparklesText text="Latest News Updates" className='font-bold text-5xl sm:text-6xl sm:text-center text-left capitalize mt-24 mb-8'/>
 
                     {loading && <LoadingSpinner/>}
                     <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
