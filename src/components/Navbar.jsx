@@ -19,7 +19,7 @@ const Navbar = () => {
                 <Link to="/"> <img src="/logo.png" alt="Logo" width={'60'} /> </Link>
             </div>
 
-            <div className='flex justify-end gap-3 flex-row-reverse sm:flex-row'>
+            <div className='flex justify-end gap-3 flex-row-reverse md:flex-row'>
                 {/* Menu Toggler */}
                 <div className={`md:hidden cursor-pointer flex`} onClick={() => setMenuOpen(!menuOpen)}>
                     {menuOpen ? <X className={`w-7 h-7 ${isDark? "text-white" : "text-black"}`} /> : <TbMenuDeep className={`w-7 h-7 ${isDark? "text-white" : "text-black"}`} />}
