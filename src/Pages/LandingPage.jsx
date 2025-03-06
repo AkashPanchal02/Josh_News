@@ -6,11 +6,12 @@ import { formatDate } from '@/utils/formatDate'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import { Clock } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
-import { SparklesText } from '@/components/magicui/sparkles-text'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { ShinyButton } from "@/components/magicui/shiny-button"
 import { ShimmerButton } from "@/components/magicui/shimmer-button";
-import { MagicCard  } from "@/components/magicui/magic-card";
+import { Globe } from "@/components/magicui//globe";
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 const LandingPage = () => {
     const { theme } = useTheme()
@@ -22,6 +23,14 @@ const LandingPage = () => {
     const categories = ["general", "business", "entertainment", "science", "sports",  "political", "social", "health", "technology", "international"]
     const [searchQuery, setSearchQuery] = useState("")
 
+    useEffect(() => {
+        document.title = `Josh News - Fastest News Platform all over the world` 
+    }, []) 
+
+    useEffect(() => {
+        AOS.init()
+    }, [])
+        
     const fetchNews = async (query="recent") => {
         setLoading(true)
         setResult({articles: []})
@@ -49,16 +58,16 @@ const LandingPage = () => {
 
     return (
         <div>
-            <section className={`conatiner ${isDark? "bg-black": "bg-white"} sm:pt-40 pt-5 pb-20 text-center`}>
-                <div className="heading">
-                    <SparklesText text="Stay informed with News Jagran" className="hidden sm:block invisible sm:visible sm:text-center text-6xl sm:text-7xl text-left" /> 
-                    <SparklesText text="Stay informed with" className="block sm:hidden visible sm:invisible sm:text-center text-5xl sm:text-7xl text-left"  /> 
-                    <SparklesText text="News Jagran" className="block sm:hidden visible sm:invisible sm:text-center text-5xl sm:text-7xl text-left"  /> 
+            <section className={`conatiner ${isDark? "bg-black": "bg-white"} text-center`}>
+                <div className="relative flex h-full w-full size-full max-w-full items-center bg-transparent justify-center overflow-hidden rounded-lg px-30 pb-40 pt-8 md:pb-60"  data-aos="fade-up" data-aos-once="true">
+                    <span className="pointer-events-none h-full whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-6xl sm:text-[110px] font-semibold leading-none text-transparent">
+                        Josh News
+                    </span>
+                        <Globe className="top-28 sm:top-32" />
+                    <div className="pointer-events-none absolute inset-0 brightness-0 h-full" />
                 </div>
-                <div className="para">
-                    <p className={`sm:text-center text-left text-xl max-w-2xl py-5 mx-auto ${isDark ? "text-blue-100" : "text-black"} mb-8`}> Your trusted source for breaking news, in-depth analysis, and the stories that matter most.</p>
-                </div>
-                <div className="">
+
+                <div className="search-bar">
                     <div className="relative search max-w-2xl text-center mx-auto">
                         <ShinyButton 
                             className={`absolute bg-black text-white rounded-full top-[6px] right-2`}
@@ -81,14 +90,18 @@ const LandingPage = () => {
             </section>
 
 
-            <div className="explore-new-categories">
-                <div className="heading text text-center mb-12">
-                <SparklesText className="sm:pt-32 text-5xl sm:text-6xl sm:text-center text-left" text="Explore News Categories" />   
-                    <p className={`py-6 text-xl mx-auto max-w-4xl sm:text-center text-left ${isDark ? "text-blue-100" : "text-black"}`}>
+            <div className="explore-new-categories my-12">
+                <div className="heading text-center h-full sm:pt-32">
+                    <h1 className={`pb-9 ${isDark? "bg-gradient-to-r from-purple-500 via-pink-500 to-red-800": "bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-800"}  bg-clip-text text-transparent text-5xl leading-none py-3 sm:text-[85px] sm:text-center font-extrabold text-left max-w-auto`}>
+                        Explore News Categories
+                    </h1> 
+                </div>
+                <div className="para">
+                    <p className={`py-2 text-xl mx-auto max-w-4xl sm:text-center text-left ${isDark ? "text-blue-100" : "text-black"}`}>
                         Stay ahead with the latest in business, technology, entertainment, and sports. Discover the stories that matter most to you.
                     </p>
                 </div>
-                <div className="sm:py-8 category-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div className="py-16 category-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 h-full">
                     {categories.map((category) => (
                         <Link
                             className=""
@@ -112,19 +125,21 @@ const LandingPage = () => {
                 </div>
             </div>
 
-            <div className="recent-headlines">
-                <div className='container mx-auto'>
-                    <SparklesText text="Latest News Updates" className='text-5xl sm:text-6xl font-bold sm:text-center text-left capitalize mt-24 mb-8'/>
+            <div className="recent-headlines my-12">
+                <div className='container mx-auto sm:pt-32'>
+                    <h1 className={`pb-12 bg-gradient-to-r ${isDark? "bg-gradient-to-r from-purple-500 via-pink-500 to-red-800": "bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-800"} bg-clip-text text-transparent text-5xl sm:text-[85px] font-bold sm:text-center text-left capitalize`}> Latest News Updates
+                    </h1>
 
                     {loading && <LoadingSpinner/>}
                     <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
                         {result.articles?.filter(({image}) => image)?.map(({ title, source, description, url, image, publishedAt }) => (
                             <Card className="relative flex flex-col" key={url}>
                                 <CardHeader>
-                                    <img 
+                                    <img
+                                        loading="lazy" 
                                         className="w-full h-52 object-cover rounded-t-lg" 
                                         src={image || imagePlaceholder} 
-                                        alt="" 
+                                        alt="Latest image" 
                                         onError={(e) => {
                                             e.target.src = imagePlaceholder 
                                             e.target.onError = null;
@@ -141,7 +156,7 @@ const LandingPage = () => {
                                         {description}
                                     </p>
                                     <div className={`text-sm ${isDark? "text-gray-300": "text-gray-700"} clock flex items-center gap-2 mt-6`}>
-                                        <Clock size={'15'} /> <span> {formatDate(publishedAt)} </span>
+                                        <Clock size={'15'} /> <span> { formatDate(publishedAt) } </span>
                                     </div>
                                 </CardContent>
                                 <CardFooter className="mt-auto">
@@ -149,7 +164,6 @@ const LandingPage = () => {
                                         <Button className="w-full uppercase" > Read Full Article  </Button> 
                                     </Link>
                                 </CardFooter>
-                                
                             </Card>
                         ))}
                     </div>

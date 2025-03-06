@@ -11,6 +11,7 @@ import LoadingSpinner from '@/components/LoadingSpinner'
 import { SparklesText } from '@/components/magicui/sparkles-text'
 
 
+
 const DisplayNews = () => {
 
     const { category="top" } = useParams()
@@ -20,6 +21,9 @@ const DisplayNews = () => {
     const [loading, setLoading] = useState(true)
     const imagePlaceholder = "https://static.startuptalky.com/2024/09/Top-News-Aggregator-Websites-StartupTalky.jpg"
     
+    useEffect(() => {
+        document.title = `${category.charAt(0).toUpperCase() + category.slice(1)} || Josh News` 
+    }, [category])
     
     useEffect(() => {
         const fetchNews = async (category) => {
@@ -53,7 +57,7 @@ const DisplayNews = () => {
                             <img 
                                 className="w-full h-52 object-cover rounded-t-lg" 
                                 src={image || imagePlaceholder} 
-                                alt="" 
+                                alt="News Image" 
                                 onError={(e) => {
                                     e.target.src = imagePlaceholder 
                                     e.target.onError = null;
