@@ -8,7 +8,7 @@ const Layout = ({children}) => {
   const isDark = theme === "dark" 
 
   return (
-    <div className={`${isDark? "bg-black": "bg-white"}`}>
+    <div className={`${isDark? "bg-black": "bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]"}`}>
       <Navbar/>
         <main className='mx-auto min-h-screen container px-5 py-10'>
           <Ripple className="overflow-hidden" />

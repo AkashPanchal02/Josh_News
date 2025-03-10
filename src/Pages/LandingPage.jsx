@@ -10,8 +10,6 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { ShinyButton } from "@/components/magicui/shiny-button"
 import { ShimmerButton } from "@/components/magicui/shimmer-button";
 import { Globe } from "@/components/magicui//globe";
-import AOS from 'aos'
-import 'aos/dist/aos.css'
 
 const LandingPage = () => {
     const { theme } = useTheme()
@@ -27,9 +25,6 @@ const LandingPage = () => {
         document.title = `Josh News - Fastest News Platform all over the world` 
     }, []) 
 
-    useEffect(() => {
-        AOS.init()
-    }, [])
         
     const fetchNews = async (query="recent") => {
         setLoading(true)
@@ -57,8 +52,9 @@ const LandingPage = () => {
     }
 
     return (
-        <div>
-            <section className={`conatiner ${isDark? "bg-black": "bg-white"} text-center`}>
+        <div className=''>
+
+            {/* <section className={`conatiner ${isDark? "bg-black": "bg-white"} text-center`}>
                 <div className="relative flex h-full w-full size-full max-w-full items-center bg-transparent justify-center overflow-hidden rounded-lg px-30 pb-40 pt-8 md:pb-60"  data-aos="fade-up" data-aos-once="true">
                     <span className="pointer-events-none h-full whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-6xl sm:text-[110px] font-semibold leading-none text-transparent">
                         Josh News
@@ -87,8 +83,38 @@ const LandingPage = () => {
                         />
                     </div>
                 </div>
-            </section>
+            </section> */}
+            <section className={`conatiner ${isDark? "bg-black": ""} text-center`}>
+                <div className="relative min-h-[400px] md:min-h-[590px] flex size-full items-center border-none justify-center overflow-hidden rounded-lg border px-40 bg-transparent opacity-100">
+                    <span className="min-w-[800px] bg-clip-text pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 text-center text-5xl sm:text-[120px] font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
+                        Josh News
+                    </span>
+                    <Globe className="opacity-70" />
+                        
+                    <div className="pointer-events-none absolute inset-0 h-full" />
+                </div>
 
+                <div className="search-bar">
+                    <div className="relative search max-w-2xl text-center mx-auto">
+                        <ShinyButton 
+                            className={`absolute bg-black text-white rounded-full top-[6px] right-2`}
+                            onClick={handleSearch}
+                        > 
+                            Search 
+                        </ShinyButton>
+                        <input
+                            type="text"
+                            placeholder="Search for news..."
+                            className="bg-gray-200 w-full px-5 py-3 pr-12 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-slate-300"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter") handleSearch()
+                            }}
+                        />
+                    </div>
+                </div>
+            </section>
 
             <div className="explore-new-categories my-12">
                 <div className="heading text-center h-full sm:pt-32">
