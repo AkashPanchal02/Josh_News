@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { useTheme } from '@/context/ThemeProvider'
@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { ShinyButton } from "@/components/magicui/shiny-button"
 import { ShimmerButton } from "@/components/magicui/shimmer-button";
-import { GlobeDemo } from '@/components/Globe'
+import { WorldMapDemo } from '@/components/WorldMap'
 
 const LandingPage = () => {
     const { theme } = useTheme()
@@ -85,12 +85,12 @@ const LandingPage = () => {
                 </div>
             </section> */}
 
-            <section className={`conatiner ${isDark? "bg-black": ""} text-center`}>
+            <section className={`container ${isDark? "bg-black": ""} text-center`}>
                 <span className="min-w-[800px] bg-clip-text pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 text-center text-6xl sm:text-[120px] font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
                     Josh News
                 </span>
-                <div className="max-w-full ax-auto relative min-h-[400px] md:min-h-[590px] flex  size-full items-center border-none justify-center overflow-hidden rounded-lg border bg-transparent opacity-100">
-                    <GlobeDemo />
+                <div className="max-w-full mx-auto relative min-h-[400px] md:min-h-[590px] flex  size-full items-center border-none justify-center overflow-hidden rounded-lg border bg-transparent opacity-100">
+                    <WorldMapDemo />
                         
                     <div className="pointer-events-none absolute inset-0 h-full" />
                 </div>
