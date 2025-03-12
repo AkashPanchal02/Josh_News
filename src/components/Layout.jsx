@@ -8,10 +8,11 @@ const Layout = ({children}) => {
   const isDark = theme === "dark" 
 
   return (
-    <div className={`${isDark? "bg-black": "bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]"}`}>
+    // <div className={`${isDark? "bg-black": "bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]"}`}>
+    <div className={`${isDark? "bg-black": "bg-white"}`}>
       <Navbar/>
         <main className='mx-auto min-h-screen container px-5 py-10'>
-          <Ripple className="overflow-hidden" />
+          {/* <Ripple className="overflow-hidden" /> */}
           {children}
         </main>
         <footer className='border-t backdrop-blur py-8 supports-[backdrop-filter]:bg-background/60'>

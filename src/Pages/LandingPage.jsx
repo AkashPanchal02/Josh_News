@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { ShinyButton } from "@/components/magicui/shiny-button"
 import { ShimmerButton } from "@/components/magicui/shimmer-button";
-import { Globe } from "@/components/magicui//globe";
+import { GlobeDemo } from '@/components/Globe'
 
 const LandingPage = () => {
     const { theme } = useTheme()
@@ -59,7 +59,7 @@ const LandingPage = () => {
                     <span className="pointer-events-none h-full whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-6xl sm:text-[110px] font-semibold leading-none text-transparent">
                         Josh News
                     </span>
-                        <Globe className="top-28 sm:top-32" />
+                        <GlobeDemo />
                     <div className="pointer-events-none absolute inset-0 brightness-0 h-full" />
                 </div>
 
@@ -84,12 +84,13 @@ const LandingPage = () => {
                     </div>
                 </div>
             </section> */}
+
             <section className={`conatiner ${isDark? "bg-black": ""} text-center`}>
-                <div className="relative min-h-[400px] md:min-h-[590px] flex size-full items-center border-none justify-center overflow-hidden rounded-lg border px-40 bg-transparent opacity-100">
-                    <span className="min-w-[800px] bg-clip-text pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 text-center text-5xl sm:text-[120px] font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
-                        Josh News
-                    </span>
-                    <Globe className="opacity-70" />
+                <span className="min-w-[800px] bg-clip-text pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 text-center text-6xl sm:text-[120px] font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
+                    Josh News
+                </span>
+                <div className="max-w-full ax-auto relative min-h-[400px] md:min-h-[590px] flex  size-full items-center border-none justify-center overflow-hidden rounded-lg border bg-transparent opacity-100">
+                    <GlobeDemo />
                         
                     <div className="pointer-events-none absolute inset-0 h-full" />
                 </div>
