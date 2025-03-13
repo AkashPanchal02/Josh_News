@@ -43,7 +43,7 @@ const DisplayNews = () => {
     }, [])
 
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto px-5'>
             <h1 className='font-bold text-center text-4xl sm:text-6xl py-9 capitalize'> International Headlines </h1>
             {loading && <LoadingSpinner/>}
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>

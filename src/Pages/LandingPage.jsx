@@ -9,7 +9,10 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { ShinyButton } from "@/components/magicui/shiny-button"
 import { ShimmerButton } from "@/components/magicui/shimmer-button";
-import { WorldMapDemo } from '@/components/WorldMap'
+import { BackgroundBeamsWithCollisionDemo } from '@/components/BackgroundBeams'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import faqs from '../data/faqs.json'
+
 
 const LandingPage = () => {
     const { theme } = useTheme()
@@ -53,50 +56,14 @@ const LandingPage = () => {
 
     return (
         <div className=''>
-
-            {/* <section className={`conatiner ${isDark? "bg-black": "bg-white"} text-center`}>
-                <div className="relative flex h-full w-full size-full max-w-full items-center bg-transparent justify-center overflow-hidden rounded-lg px-30 pb-40 pt-8 md:pb-60"  data-aos="fade-up" data-aos-once="true">
-                    <span className="pointer-events-none h-full whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-6xl sm:text-[110px] font-semibold leading-none text-transparent">
-                        Josh News
-                    </span>
-                        <GlobeDemo />
-                    <div className="pointer-events-none absolute inset-0 brightness-0 h-full" />
-                </div>
-
-                <div className="search-bar">
-                    <div className="relative search max-w-2xl text-center mx-auto">
-                        <ShinyButton 
-                            className={`absolute bg-black text-white rounded-full top-[6px] right-2`}
-                            onClick={handleSearch}
-                        > 
-                            Search 
-                        </ShinyButton>
-                        <input
-                            type="text"
-                            placeholder="Search for news..."
-                            className="bg-gray-200 w-full px-5 py-3 pr-12 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-slate-300"
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            onKeyDown={(e) => {
-                                if (e.key === "Enter") handleSearch()
-                            }}
-                        />
-                    </div>
-                </div>
-            </section> */}
-
             <section className={`container ${isDark? "bg-black": ""} text-center`}>
-                <span className="min-w-[800px] bg-clip-text pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 text-center text-6xl sm:text-[120px] font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
-                    Josh News
-                </span>
-                <div className="max-w-full mx-auto relative min-h-[400px] md:min-h-[590px] flex  size-full items-center border-none justify-center overflow-hidden rounded-lg border bg-transparent opacity-100">
-                    <WorldMapDemo />
-                        
-                    <div className="pointer-events-none absolute inset-0 h-full" />
+                <div className='background-beams'>
+                    <BackgroundBeamsWithCollisionDemo />
                 </div>
 
-                <div className="search-bar">
-                    <div className="relative search max-w-2xl text-center mx-auto">
+
+                <div className="search-bar px-5">
+                    <div className="relative search max-w-3xl text-center mx-auto">
                         <ShinyButton 
                             className={`absolute bg-black text-white rounded-full top-[6px] right-2`}
                             onClick={handleSearch}
@@ -105,7 +72,7 @@ const LandingPage = () => {
                         </ShinyButton>
                         <input
                             type="text"
-                            placeholder="Search for news..."
+                            placeholder="Josh News Search..."
                             className="bg-gray-200 w-full px-5 py-3 pr-12 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-slate-300"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
@@ -117,14 +84,14 @@ const LandingPage = () => {
                 </div>
             </section>
 
-            <div className="explore-new-categories my-12">
+            <div className="explore-new-categories my-12 px-5">
                 <div className="heading text-center h-full sm:pt-32">
-                    <h1 className={`pb-9 ${isDark? "bg-gradient-to-r from-purple-500 via-pink-500 to-red-800": "bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-800"}  bg-clip-text text-transparent text-5xl leading-none py-3 sm:text-[85px] sm:text-center font-extrabold text-left max-w-auto`}>
+                    <h1 className={`pb-5 sm:pb-9 ${isDark? "bg-gradient-to-r from-purple-500 via-pink-500 to-red-800": "bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-800"} bg-clip-text text-transparent text-5xl leading-none py-3 sm:text-[85px] md:text-center  font-extrabold text-left max-w-auto font-sans` }>
                         Explore News Categories
                     </h1> 
                 </div>
                 <div className="para">
-                    <p className={`py-2 text-xl mx-auto max-w-4xl sm:text-center text-left ${isDark ? "text-blue-100" : "text-black"}`}>
+                    <p className={`text-xl mx-auto max-w-4xl md:text-center text-left ${isDark ? "text-blue-100" : "text-black"}`}>
                         Stay ahead with the latest in business, technology, entertainment, and sports. Discover the stories that matter most to you.
                     </p>
                 </div>
@@ -152,9 +119,9 @@ const LandingPage = () => {
                 </div>
             </div>
 
-            <div className="recent-headlines my-12">
+            <div className="recent-headlines my-12 px-5">
                 <div className='container mx-auto sm:pt-32'>
-                    <h1 className={`pb-12 bg-gradient-to-r ${isDark? "bg-gradient-to-r from-purple-500 via-pink-500 to-red-800": "bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-800"} bg-clip-text text-transparent text-5xl sm:text-[85px] font-bold sm:text-center text-left capitalize`}> Latest News Updates
+                    <h1 className={`pb-12 bg-gradient-to-r ${isDark? "bg-gradient-to-r from-purple-500 via-pink-500 to-red-800": "bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-800"} bg-clip-text text-transparent text-5xl sm:text-[85px] md:text-center text-left capitalize font-sans font-extrabold`}> Latest News Updates
                     </h1>
 
                     {loading && <LoadingSpinner/>}
@@ -193,6 +160,28 @@ const LandingPage = () => {
                                 </CardFooter>
                             </Card>
                         ))}
+                    </div>
+                </div>
+            </div>
+
+
+            <div className="recent-headlines my-12 px-5">
+                <div className='container mx-auto sm:pt-32 text-center'>
+                    <h1 className={`pb-12 bg-gradient-to-r ${isDark? "bg-gradient-to-r from-purple-500 via-pink-500 to-red-800": "bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-800"} bg-clip-text text-transparent text-5xl sm:text-[85px] md:text-center text-left capitalize font-sans font-extrabold`}> 
+                        Frequently Asked Questions
+                    </h1>
+                    
+                    <div className="flex justify-center text-xl">
+                        <div className='max-w-7xl w-full'>
+                            <Accordion type="single" collapsible>
+                                {faqs.map(({id, question, answer}) => (
+                                    <AccordionItem key={id} value={`item-${id+1}`}>
+                                        <AccordionTrigger className="text-lg hover:no-underline"> {`${id}. ${question}`} </AccordionTrigger>
+                                        <AccordionContent className="text-start text-lg"> {answer} </AccordionContent>
+                                    </AccordionItem>
+                                ))}
+                            </Accordion>
+                        </div>
                     </div>
                 </div>
             </div>

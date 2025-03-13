@@ -47,7 +47,7 @@ const DisplayNews = () => {
     }, [category])
 
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto px-5'>
             <SparklesText text={`${category} Headlines`}  className="text-center text-4xl sm:text-6xl pb-9 capitalize font-extrabold"  /> 
             {loading && <LoadingSpinner/>}
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>

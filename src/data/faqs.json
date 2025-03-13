@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "question": "What is Josh News?",
+        "answer": "Josh News is a digital news platform that provides real-time updates, expert insights, and in-depth analysis across various categories."
+    },
+    {
+        "id": 2,
+        "question": "Is Josh News free to use?",
+        "answer": "Yes, Josh News is completely free to access. However, we may offer premium features in the future."
+    },
+    {
+        "id": 3,
+        "question": "How often is the news updated?",
+        "answer": "Our platform updates news in real-time, ensuring you get the latest information as it happens."
+    },
+    {
+        "id": 4,
+        "question": "Do you provide global or local news?",
+        "answer": "We cover a wide range of topics, including politics, business, technology, sports, entertainment, health, and more."
+    },
+    {
+        "id": 5,
+        "question": "How does the search feature work?",
+        "answer": "You can search for specific topics, keywords, or trending news using the search bar on our homepage."
+    }
+]

@@ -16,7 +16,7 @@ const Navbar = () => {
     return (
         <nav className='sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur py-2 supports-[backdrop-filter]:bg-background/60 bg-black h-[80px] flex items-center justify-between sm:px-16 px-5'>
             <div className="img">
-                <Link to="/"> <img src="/logo.png" alt="Logo" width={'47'} /> </Link>
+                <Link to="/"> <img src={isDark? "/logo-dark.png": "/logo-light.png"} alt="Logo" width={'65'} /> </Link>
             </div>
 
             <div className='flex justify-end gap-3 flex-row-reverse md:flex-row'>

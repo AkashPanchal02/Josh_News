@@ -6,11 +6,13 @@ import DisplayNews from './Pages/DisplayNews'
 import { ThemeProvider } from './context/ThemeProvider'
 import LandingPage from './Pages/LandingPage'
 import  InternationalNews  from './Pages/InternationalNews'
+import  ScrollToTop  from './components/ScrollToTop'
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        <ScrollToTop/>
         <ThemeProvider defaultTheme="dark">
           <Layout>
             <Routes>
