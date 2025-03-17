@@ -14,6 +14,14 @@ const Navbar = () => {
     const location = useLocation()
 
     return (
+        <>
+        
+        {menuOpen && (
+            <div 
+            className="fixed inset-0 bg-black/10 backdrop-blur z-40 supports-[backdrop-filter]:bg-background/60"
+            onClick={() => setMenuOpen(false)}
+            />
+        )}
         <nav className='sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur py-2 supports-[backdrop-filter]:bg-background/60 bg-black h-[80px] flex items-center justify-between sm:px-16 px-5'>
             <div className="img">
                 <Link to="/"> <img src={isDark? "/logo-dark.png": "/logo-light.png"} alt="Logo" width={'65'} /> </Link>
@@ -26,7 +34,7 @@ const Navbar = () => {
                 </div>
 
                 <div 
-                    className={`md:flex md:gap-12 absolute md:static top-20 right-0 w-full md:w-auto ${isDark? "bg-black": "bg-white"} md:bg-transparent p-5 md:p-0 transition-all duration-300 ease-in-out transform ${menuOpen ? "blockopacity-100 scale-100 h-screen backdrop-blur supports-[backdrop-filter]:bg-background/95" : "hidden scale-95"} md:opacity-100 md:scale-100`}
+                    className={`md:flex md:gap-12 absolute md:static top-20 right-0 w-full md:w-auto ${isDark? "bg-black": "bg-white"} md:bg-transparent p-5 md:p-0 transition-all duration-300 ease-in-out transform ${menuOpen ? "block opacity-100 scale-100 h-screen backdrop-blur supports-[backdrop-filter]:bg-background/95" : "hidden scale-95"} md:opacity-100 md:scale-100`}
                 >
                     <ul className="flex flex-col md:flex-row justify-end gap-2 cursor-pointer">
                         {categories.map((category) => (
@@ -34,12 +42,12 @@ const Navbar = () => {
                                 key={category} 
                                 variant={`${isDark? "dark" : "light"}`}
                                 className={`${isDark? "hover:bg-white hover:text-black": "hover:bg-black hover:text-white"} ${location.pathname.includes(category)? `${isDark? "bg-white text-black": "bg-black text-white"}`: ""}`}
-                            >
+                                >
                                 <Link 
                                     className="capitalize text-base" 
                                     to={`/news/${category}`} 
                                     onClick={() => setMenuOpen(false)}
-                                > 
+                                    > 
                                     {category} 
                                 </Link>
                             </Button>
@@ -50,7 +58,7 @@ const Navbar = () => {
                 <div 
                     className={`flex items-center cursor-pointer transition-transform duration-500 ${isDark ? "rotate-180": "rotate-0"}`}
                     onClick={() => setTheme(isDark? "light" : "dark")}
-                >
+                    >
                     {
                         isDark ? (
                             <Sun className='h-6 w-6 text-yellow-500 rotate-0 transition-all'/>
@@ -61,6 +69,7 @@ const Navbar = () => {
                 </div>
             </div>
         </nav>
+                    </>
     )
 }
 
