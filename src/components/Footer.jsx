@@ -58,7 +58,7 @@ const Footer = () => {
 
             <div className='border-t pt-8 flex items-center'> 
                 <div className='container mx-auto px-4 text-center'>
-                    <h2> {`Made with ${isDark? "🤍" : "🖤"} by Akash Panchal © All rights reserved 2025`} </h2>
+                    <h2> {`Made with ${isDark? "🤍" : "🖤"} by Akash Panchal © All rights reserved 2025.`} </h2>
                 </div>
             </div>
         </>
